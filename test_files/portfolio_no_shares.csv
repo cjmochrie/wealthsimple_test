@@ -1,0 +1,6 @@
+Ticker,Target allocation,Actual allocation,Shares owned,Share price
+GOOG,	40%,	50.96%,	52,	$98
+AAPL,	30%,	29.92%,	136,	$22
+TSLA,	10%,	19.12%,	239,	$8
+FOO,    5%,           0%, 0, $12.5
+BAR, 15%, 0%, 0, $10.11561
