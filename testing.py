@@ -3,8 +3,8 @@ from rebalance import *
 
 TESTING_DIRECTORY = 'test_files/'
 
-class TestRebalanceModule(unittest.TestCase):
 
+class TestRebalanceModule(unittest.TestCase):
     def test_instructions(self):
         # Test to verify the example portfolio generates correct instructions
         portfolio = load_portfolio(TESTING_DIRECTORY + 'portfolio.csv')

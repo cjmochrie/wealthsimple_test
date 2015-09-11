@@ -8,6 +8,7 @@ import warnings
 # data ie; transaction type, number of shares etc.
 Instruction = namedtuple('Instruction', 'ticker instruction')
 
+
 class Position:
     """Class for each position"""
 
@@ -33,11 +34,11 @@ class Position:
         if not act_allocation.strip():
             self.act_allocation = Decimal(0)
         else:
-            self.act_allocation = Decimal(act_allocation[:-1])/100
+            self.act_allocation = Decimal(act_allocation[:-1]) / 100
 
         if not target_allocation.strip():
             raise ValueError('Target allocation of position {} required.'.format(ticker))
-        self.target_allocation = Decimal(target_allocation[:-1])/100
+        self.target_allocation = Decimal(target_allocation[:-1]) / 100
 
     def __repr__(self):
         return "Ticker: {} Shares: {} Price: ${:.2f} Target Allocation: {:.2%} Actual Allocation: {:.2%}\n".format(
@@ -86,7 +87,7 @@ class Portfolio:
             actual_value = position.price * position.shares
             target_value = position.target_allocation * self.value
 
-            shares_change = round((target_value - actual_value)/position.price, 0)
+            shares_change = round((target_value - actual_value) / position.price, 0)
             if shares_change < 0:
                 instructions.append(Instruction(position.ticker, "Sell {} shares of {}".format(-shares_change,
                                                                                                position.ticker)))
@@ -123,7 +124,7 @@ def load_portfolio(csv_filename):
 # Script: opens target file, prints out the newly created portfolio then runs rebalance on the portfolio and prints
 #  the list of instructions which will complete the rebalancing.
 if __name__ == '__main__':
-    portfolio = load_portfolio(sys.argv[1])
+    port = load_portfolio(sys.argv[1])
     print('\n')
-    print(portfolio)
-    print(portfolio.rebalance())
+    print(port)
+    print(port.rebalance())
